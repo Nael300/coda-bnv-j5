@@ -1,9 +1,16 @@
-all: exercice_makefile
+# Makefile
 
-exercice_makefile: main.c functions.c functions.h
-	gcc main.c functions.c -o exercice_makefile
+NAME = exercice_makefile
 
-clean:
-	rm -f exercice_makefile
+SRCS = main.c \
+	functions.c
 
-re: clean all
+all: $(NAME)
+
+$(NAME): $(SRCS)
+	gcc $(SRCS) -o $(NAME)
+
+fclean:
+	rm -f $(NAME)
+
+re: fclean all
